@@ -1,141 +1,471 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <title>Vikas Kumar | Data Scientist</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikas Kumar - Machine Learning & Data Science</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS (Animate on Scroll) Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+            color: #e2e8f0; /* slate-200 */
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b; /* slate-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5; /* indigo-600 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1; /* indigo-500 */
+        }
+        .section-title {
+            @apply text-3xl font-bold text-center mb-16 relative;
+        }
+        .section-title::after {
+            content: '';
+            @apply w-16 h-1 bg-indigo-500 absolute -bottom-4 left-1/2 -translate-x-1/2 rounded-full;
+        }
+        .skill-icon {
+            @apply w-16 h-16;
+        }
+        .hero-bg {
+             background-image: linear-gradient(to top, #0f172a 0%, rgba(15, 23, 42, 0) 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+        /* For the timeline */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 9999px;
+            background-color: #1e293b; /* slate-800 */
+            border: 4px solid #4f46e5; /* indigo-600 */
+            top: 0;
+            left: -0.625rem;
+            z-index: 10;
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased">
 
-<div class="container">
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-slate-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#hero" class="text-2xl font-bold text-white flex-shrink-0">
+                VK<span class="text-indigo-500"></span>
+            </a>
+            
+            <!-- Centered Desktop Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-slate-300 hover:text-indigo-400 transition">About</a>
+                <a href="#experience" class="text-slate-300 hover:text-indigo-400 transition">Experience</a>
+                <a href="#skills" class="text-slate-300 hover:text-indigo-400 transition">Skills</a>
+                <a href="#projects" class="text-slate-300 hover:text-indigo-400 transition">Projects</a>
+                
+            </div>
 
-  <header>
-    <h1>Vikas Kumar</h1>
-    <div class="role">
-        Aspiring Data Scientist · Machine Learning Engineer
-    </div>
+            <!-- Right aligned items -->
+            <div class="flex items-center">
+                <a href="#contact" class="hidden md:block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-lg transition">Contact Me</a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">About</a>
+            <a href="#experience" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Experience</a>
+            <a href="#skills" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Skills</a>
+            <a href="#projects" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Projects</a>
+            <a href="#contact" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Contact Me</a>
+        </div>
+    </header>
 
-    <p style="max-width: 650px; margin-top: 20px; font-size: 1.1rem;">
-        I build end-to-end machine learning systems with a strong focus on
-        data understanding, robust evaluation, and real-world decision making.
-    </p>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center bg-slate-900 hero-bg">
+            <div class="container mx-auto px-6" data-aos="zoom-in">
+                <img src="mee.jpg" alt="Vikas Kumar" class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-indigo-500 shadow-lg">
+                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
+                    Hi, I'm Vikas Kumar
+                </h1>
+                <div id="typed-text" class="text-xl md:text-2xl text-indigo-400 font-semibold mb-8 h-8">Machine Learning & Data Science</div>
+                <p class="max-w-3xl mx-auto text-slate-300 mb-10">
+                    I build end-to-end machine learning systems with a strong focus on data understanding,
+                    robust evaluation, and real-world decision making. My work emphasizes reproducibility,
+                    thoughtful metrics, and practical problem-solving.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                         View Projects
+                    </a>
+                    <a href="Vikas_kumar_resume.pdf" class="bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <div class="actions">
-        <a class="button" href="Vikas_kumar_resume.pdf" download>
-        Download Resume
-        </a>
-        <a class="button secondary" href="https://github.com/Vikas24">
-        GitHub
-        </a>
-    </div>
-  </header>
-
-
-  <section>
-    <h2>About</h2>
-    <p>
-        I am a Computer Science undergraduate with a strong focus on Machine Learning and Data Science,
-        driven by an interest in building reliable and interpretable data-driven systems.
-        I enjoy working across the complete machine learning lifecycle — from exploratory data analysis
-        and feature engineering to model training, evaluation, and iterative improvement.
-    </p>
-    <p>
-        My projects emphasize clean, reproducible code and thoughtful evaluation using metrics beyond
-        accuracy, especially in scenarios involving class imbalance and real-world decision trade-offs.
-        I actively incorporate feedback and iterate on my work to improve both model performance
-        and engineering quality.
-    </p>
-    <p>
-        Currently, I am expanding my expertise toward Natural Language Processing and Deep Learning,
-        with a growing interest in Transformer-based architectures and representation learning.
-        My goal is to apply these techniques to practical problems while maintaining a strong foundation
-        in machine learning fundamentals.
-    </p>
-  </section>
-
-  <section>
-    <h2>Highlights</h2>
-    <div class="skills">
-        <div class="skill">End-to-End ML Pipelines</div>
-        <div class="skill">Imbalanced Classification</div>
-        <div class="skill">ROC-AUC & PR Analysis</div>
-        <div class="skill">SMOTE & Threshold Tuning</div>
-        <div class="skill">Cross-Validation</div>
-        <div class="skill">Reproducible ML Systems</div>
-        <div class="skill">ML Trade-offs</div>
-    </div>
-  </section>
-
-
-
-  <section>
-    <h2>Technical Skills</h2>
-    <div class="skills">
-      <div class="skill">Python</div>
-      <div class="skill">Machine Learning</div>
-      <div class="skill">Data Analysis</div>
-      <div class="skill">Scikit-learn</div>
-      <div class="skill">Pandas</div>
-      <div class="skill">NumPy</div>
-      <div class="skill">EDA</div>
-      <div class="skill">Model Evaluation</div>
-      <div class="skill">Cross-Validation</div>
-      <div class="skill">Git & GitHub</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Projects</h2>
-
-    <div class="project">
-        <h3>Titanic Survival Prediction</h3>
-
-        <p>
-            Designed and implemented an end-to-end machine learning pipeline to predict passenger survival,
-            with emphasis on data understanding, evaluation robustness, and handling real-world constraints
-            such as class imbalance.
-        </p>
-
-        <ul>
-            <li>Performed detailed EDA to identify key survival drivers</li>
-            <li>Handled class imbalance using SMOTE</li>
-            <li>Optimized Logistic Regression using GridSearchCV</li>
-            <li>Evaluated using ROC-AUC, Precision–Recall curves, and k-fold cross-validation</li>
-            <li>Achieved ~80% accuracy and ~0.85 mean ROC-AUC</li>
-        </ul>
-
-        <a href="https://github.com/Vikas24/titanic-survival-prediction">
-            View Project on GitHub →
-        </a>
-    </div>
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-slate-800">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title font-bold text-3xl mb-4" data-aos="fade-up">✨About Me</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/3" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Coding on a laptop" class="rounded-lg shadow-2xl">
+                    </div>
+                    <div class="md:w-2/3" data-aos="fade-left">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Building reliable machine learning systems with purpose</h3>
+                        <p class="text-slate-300 mb-4">
+                             I am a Computer Science undergraduate with a strong focus on Machine Learning and Data Science.
+                             I enjoy working across the complete machine learning lifecycle — from exploratory data analysis
+                             and data preprocessing to model training, evaluation, and iterative improvement.
 
 
-  </section>
+                        </p>
+                        <p class="text-slate-300 mb-6">
+                            My projects emphasize clean, reproducible code and thoughtful evaluation using metrics beyond
+                            accuracy, especially in scenarios involving class imbalance and real-world constraints.
+                            Currently, I am expanding my expertise toward Natural Language Processing, Deep Learning,
+                            and Transformer-based architectures.
 
-  <section>
-    <h2>Currently Learning</h2>
-    <p>
-      I am currently deepening my understanding of Natural Language Processing and Deep Learning,
-      with a focus on modern architectures such as Transformers. My learning is centered around
-      practical implementation, model evaluation, and understanding how these approaches scale to
-      real-world problems.
-    </p>
-  </section>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>
-      📧 Email: orvikas05@gmail.com <br>
-      💻 GitHub: <a href="https://github.com/Vikas24">github.com/Vikas24</a>
-    </p>
-  </section>
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 bg-slate-900">
+            <div class="container mx-auto px-6">
+        
+                <h2 class="text-4xl font-bold text-white text-center mb-16">
+                    Experience
+                </h2>
+        
+                <!-- Experience Item -->
+                <div class="max-w-3xl mx-auto relative timeline-item">
+                    <div class="bg-slate-800 rounded-lg p-8 shadow-lg">
+        
+                        <time class="text-sm font-semibold text-indigo-400">
+                            July 2025 – August 2025
+                        </time>
+        
+                        <h3 class="text-2xl font-bold text-white mt-2">
+                            Summer Intern
+                        </h3>
+        
+                        <p class="text-slate-400 mb-4">
+                            IBM · Delhi, India
+                        </p>
+        
+                        <ul class="list-disc list-inside text-slate-300 space-y-2">
+                            <li>
+                                Worked on building and deploying AI-powered agents as part of project-based learning
+                                initiatives.
+                            </li>
+                            <li>
+                                Gained hands-on exposure to Agentic AI frameworks and multi-agent system concepts.
+                            </li>
+                            <li>
+                                Applied Python-based workflows to experiment with intelligent agents and decision-making
+                                pipelines.
+                            </li>
+                            <li>
+                                Strengthened understanding of real-world AI system design, collaboration, and iterative
+                                development.
+                            </li>
+                        </ul>
+        
+                    </div>
+                </div>
+        
+            </div>
+        </section>
 
-</div>
+        <section id="skills" class="py-20 bg-slate-900">
+            <div class="container mx-auto px-6">
+        
+                <h2 class="text-4xl font-bold text-white text-center mb-16">
+                    Skills
+                </h2>
+        
+                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+        
+                    <!-- Programming & Tools -->
+                    <div class="bg-slate-800 rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-semibold text-indigo-400 mb-4">
+                            Programming & Tools
+                        </h3>
+                        <ul class="list-disc list-inside text-slate-300 space-y-2">
+                            <li>Python</li>
+                            <li>Jupyter Notebook</li>
+                            <li>Git & GitHub</li>
+                        </ul>
+                    </div>
+        
+                    <!-- Data Collection & Storage -->
+                    <div class="bg-slate-800 rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-semibold text-indigo-400 mb-4">
+                            Data Collection & Storage
+                        </h3>
+                        <ul class="list-disc list-inside text-slate-300 space-y-2">
+                            <li>SQL (Data Querying)</li>
+                            <li>MongoDB (NoSQL Databases)</li>
+                            <li>Selenium (Web Automation)</li>
+                            <li>Scrapy (Web Scraping)</li>
+                        </ul>
+                    </div>
+        
+                    <!-- Data Analysis & Visualization -->
+                    <div class="bg-slate-800 rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-semibold text-indigo-400 mb-4">
+                            Data Analysis & Visualization
+                        </h3>
+                        <ul class="list-disc list-inside text-slate-300 space-y-2">
+                            <li>Pandas, NumPy</li>
+                            <li>Matplotlib</li>
+                            <li>Seaborn</li>
+                            <li>Exploratory Data Analysis (EDA)</li>
+                        </ul>
+                    </div>
+        
+                    <!-- Machine Learning -->
+                    <div class="bg-slate-800 rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-semibold text-indigo-400 mb-4">
+                            Machine Learning
+                        </h3>
+                        <ul class="list-disc list-inside text-slate-300 space-y-2">
+                            <li>Linear Regression</li>
+                            <li>Logistic Regression</li>
+                            <li>K-Nearest Neighbors (KNN)</li>
+                            <li>Scikit-learn</li>
+                            <li>Feature Engineering</li>
+                            <li>Model Evaluation</li>
+                        </ul>
+                    </div>
+        
+                    <!-- Applied & Advanced Techniques -->
+                    <div class="bg-slate-800 rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-semibold text-indigo-400 mb-4">
+                            Applied ML Techniques
+                        </h3>
+                        <ul class="list-disc list-inside text-slate-300 space-y-2">
+                            <li>Class Imbalance Handling (SMOTE)</li>
+                            <li>Hyperparameter Tuning (GridSearchCV)</li>
+                            <li>Cross-Validation (k-fold)</li>
+                            <li>ROC-AUC & Precision–Recall Analysis</li>
+                            <li>Threshold Tuning</li>
+                        </ul>
+                    </div>
+        
+                    <!-- NLP & Computer Vision -->
+                    <div class="bg-slate-800 rounded-lg p-6 shadow-lg md:col-span-2">
+                        <h3 class="text-xl font-semibold text-indigo-400 mb-4">
+                            NLP & Computer Vision (Foundational Knowledge)
+                        </h3>
+                        <ul class="list-disc list-inside text-slate-300 space-y-2">
+                            <li>Natural Language Processing (NLP)</li>
+                            <li>Text Preprocessing & Vectorization</li>
+                            <li>OpenCV (Computer Vision Basics)</li>
+                            <li>Image Processing Fundamentals</li>
+                        </ul>
+                    </div>
+        
+                    <!-- Currently Learning -->
+                    <div class="bg-slate-800 rounded-lg p-6 shadow-lg md:col-span-2">
+                        <h3 class="text-xl font-semibold text-indigo-400 mb-4">
+                            Currently Learning
+                        </h3>
+                        <ul class="list-disc list-inside text-slate-300 space-y-2">
+                            <li>Deep Learning</li>
+                            <li>Transformer Architectures</li>
+                            <li>Advanced NLP Techniques</li>
+                        </ul>
+                    </div>
+        
+                </div>
+            </div>
+        </section>
 
-<footer>
-  © 2026 Vikas Kumar · Data Science & Machine Learning
-</footer>
+       
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-slate-950">
+            <div class="container mx-auto px-6">
+        
+                <h2 class="text-4xl font-bold text-white text-center mb-16">
+                    Projects
+                </h2>
+        
+                <!-- Project Card -->
+                <div class="max-w-4xl mx-auto bg-slate-800 rounded-xl p-8 shadow-lg">
+        
+                    <h3 class="text-2xl font-bold text-white mb-3">
+                        Titanic Survival Prediction
+                    </h3>
+        
+                    <p class="text-slate-400 mb-4">
+                        End-to-End Machine Learning Project
+                    </p>
+        
+                    <p class="text-slate-300 mb-6">
+                        Designed and implemented a complete machine learning pipeline to predict passenger survival
+                        on the Titanic dataset, with emphasis on data understanding, class imbalance handling, and
+                        robust evaluation using metrics beyond accuracy.
+                    </p>
+        
+                    <ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
+                        <li>Performed detailed exploratory data analysis to identify key survival drivers</li>
+                        <li>Handled missing values and categorical features using structured preprocessing</li>
+                        <li>Addressed class imbalance using SMOTE applied only on training data</li>
+                        <li>Optimized Logistic Regression using GridSearchCV</li>
+                        <li>Evaluated models using Accuracy, ROC-AUC, Precision–Recall curves, and k-fold cross-validation</li>
+                        <li>Achieved ~80% test accuracy and ~0.85 mean cross-validated ROC-AUC</li>
+                        <li>Developed environment-independent scripts runnable on local systems and Google Colab</li>
+                    </ul>
+        
+                    <div>
+                        <a href="https://github.com/Vikas24/titanic-survival-prediction" target="_blank"
+                            class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+                            View Project on GitHub
+                        </a>
+                    </div>
+        
+                </div>
+        
+            </div>
+        </section>
 
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-slate-900">
+            <div class="container mx-auto px-6 text-center">
+        
+                <h2 class="text-4xl font-bold text-white mb-6">
+                    Contact
+                </h2>
+        
+                <p class="text-slate-300 max-w-2xl mx-auto mb-10">
+                    I am open to entry-level opportunities, internships, and collaborative projects
+                    in Machine Learning and Data Science. Feel free to reach out.
+                </p>
+        
+                <div class="flex flex-col items-center gap-4 text-slate-300">
+        
+                    <p>
+                        📧 Email:
+                        <a href="mailto:orvikas05@gmail.com" class="text-indigo-400 hover:underline">
+                            orvikas05@gmail.com
+                        </a>
+                    </p>
+        
+                    <p>
+                        💻 GitHub:
+                        <a href="https://github.com/Vikas24" target="_blank" class="text-indigo-400 hover:underline">
+                            github.com/Vikas24
+                        </a>
+                    </p>
+        
+                    <p>
+                        🔗 LinkedIn:
+                        <a href="https://www.linkedin.com/in/vikas-kumaror05" target="_blank"
+                            class="text-indigo-400 hover:underline">
+                            linkedin.com/in/vikas-kumaror05
+                        </a>
+                    </p>
+        
+                </div>
+        
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-8">
+        <div class="container mx-auto px-6 text-center text-slate-400 text-sm">
+    
+            <p>
+                © 2026 Vikas Kumar · Machine Learning & Data Science
+            </p>
+    
+            <p class="mt-2">
+                Built with focus on clarity, reproducibility, and real-world machine learning practice
+            </p>
+    
+        </div>
+    </footer>
+
+    <!-- JS Libraries -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800, // values from 0 to 3000, with step 50ms
+            once: true, // whether animation should happen only once - while scrolling down
+        });
+        
+        // Initialize Typed.js
+        const typed = new Typed('#typed-text', {
+            strings: ['Machine Learning Engineer',
+                'Data Science Enthusiast',
+                'Problem Solver',
+                'Aspiring AI Researcher'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileNavLinks = mobileMenu.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                 mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Add shadow to header on scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
 </body>
 </html>
+
+
+
+
+
+
